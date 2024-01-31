@@ -5,15 +5,31 @@
 // SYNTAX ERRORS
 
 // 1.
-// let x = 10;
-// if (x > 5) {
-//     console.log("Hello, World!");
-// }
+let x = 10;
+if (x > 5) {
+    console.log("Hello, World!");
+}
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:8
+// if (x > 5 {
+//           ^
 
 // SyntaxError: Unexpected token '{'
 
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:8
+// if (x > 5) {
+// ^
+
+// ReferenceError: x is not defined
+
+// Let's check the error message
+
 // 2.
 const message = 'Hello, World!';
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:16
+// const message = 'Hello, World!;
+                // ^^^^^^^^^^^^^^^
 // SyntaxError: Invalid or unexpected token
 
 // 3.
@@ -21,29 +37,53 @@ function myFunction() {
   console.log("Hello!");
 }
 
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:24
+//   console.log("Hello!");
+//   ^^^^^^^
+// SyntaxError: Unexpected identifier 'console'
+
 // 4.
 function name() {}
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:47
+// function() {}
+// ^^^^^^^^
 
 // SyntaxError: Function statements require a function name
 
 // 5.
 function whatsWrong() {}
 
-// SyntaxError: Unexpected end of input - Missing a closing curly bracket.
+    // /Users/patrickrogers/Pursuit/Labs/debugging/index.js:126
+
+
+
+    // SyntaxError: Unexpected end of input
 
 // 6.
 
 let a = 6;
 a = 5;
 
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:67
+// let a = 5;
+//     ^
+
 // SyntaxError: Identifier 'a' has already been declared
 
-// TYPE ERRORS - when attempting to modify a value that cannot be changed;
+// 7.
+
+// TYPE ERRORS - when attempting to modify a value that cannot e changed;
 
 // 1.
 
 const b = 9
+const c = 5
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:82
 // b = 5
+//   ^
 
 // TypeError: Assignment to constant variable.
 
@@ -54,65 +94,95 @@ const obj = { name: {
     last: "Efron"
 }}
 
-obj.name.first // obj.naem returns undefined.
+// obj.naem.first
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:97
+// obj.naem.first
+//          ^
+
+// TypeError: Cannot read properties of undefined (reading 'first')
+
+obj.name.first
 
 function popFirstAndReturn(arr) {
     return arr.pop()
 }
 
-// popFirstAndReturn(); // Am I passing a value/argument to my function?
-// TypeError: Cannot read properties of undefined (reading 'pop')
-
-// Cannot read properties of undefined (reading 'first')
-
 // 3.
 
 const arr = [1,2,3]
-const object = {};
 // arr();
-// arr.mep()
+// arr.mep();
 
-// object.push("arr")
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:114
+// arr();
+// ^
 
 // TypeError: arr is not a function
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:115
+// arr.mep();
+//     ^
+
+// TypeError: arr.mep is not a function
+
+// Object.push(arr);
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:129
+// Object.push(arr);
+//        ^
+
+// TypeError: Object.push is not a function
 
 // REFERENCE ERRORS
 
 // 1.
 
-// console.log(myVariable);
+// console.log(myVariable)
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:141
+// console.log(myVariable)
+            ^
+
+// ReferenceError: myVariable is not defined
 
 function findMax(arr) {
-    let max = arr[0];
+    let max = num;
     for (let num of arr) {
         max = max > num ? max : num
     }
-
-    return max
+    return max;
 }
 
-// ReferenceError: myVariable is not defined
-// declaring variables in other scopes
-// forgetting to pass parameters in the params list of a function
-// forgetting to declare a variable altogether
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:191
 
-findMax([1,3,2])
+
+
+// SyntaxError: Unexpected end of input
 
 
 // 2.
 
 // console.log(y);
-// let y = 5;
+let y = 5
+
+console.log(y);
+
+// /Users/patrickrogers/Pursuit/Labs/debugging/index.js:166
+// console.log(y);
+//             ^
+
 // ReferenceError: Cannot access 'y' before initialization
 
 // debugger in vscode
 
 function sumOfAllOddElements(arr) {
+
     let sum = 0;
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length -1; i++) {
         debugger;
-        if (arr[i] % 2 !== 0) {
+        if (arr[i] % 2 === 0) {
             sum += arr[i];
         }
     }
