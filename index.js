@@ -181,7 +181,6 @@ function sumOfAllOddElements(arr) {
     let sum = 0;
 
     for (let i = 0; i < arr.length -1; i++) {
-        debugger;
         if (arr[i] % 2 === 0) {
             sum += arr[i];
         }

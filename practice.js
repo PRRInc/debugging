@@ -53,6 +53,7 @@ const person = {
     let [ phone ] = person;
   
     for (const key of phone) {
+      debugger
       phone.key = "(" areaCode + ") " + phone.key;
     }
     return phone;
